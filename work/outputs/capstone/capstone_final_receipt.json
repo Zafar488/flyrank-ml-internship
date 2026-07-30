@@ -1,0 +1,23 @@
+{
+  "assignment": "ML-11 Ship the Paper",
+  "all_self_checks_passed": true,
+  "public_safe": true,
+  "deployed_url_expected": "https://zafar488.github.io/flyrank-ml-internship/",
+  "paper_url_file": "submission/paper_url.txt",
+  "research_page": "docs/index.html",
+  "searchable_pdf": "docs/paper.pdf",
+  "verified_literature_page": "docs/literature.html",
+  "citation_file": "CITATION.cff",
+  "paper_sha256": "f505dd6ac1e1db32404884e9533e10ed7d567ece51f4fa46e228845b633f4957",
+  "paper_pages": 16,
+  "paper_version": "1.1",
+  "publication_status": "Pre-DOI",
+  "report": "work/capstone_report.md",
+  "assets": [
+    "docs/assets/model-vs-baseline.png",
+    "docs/assets/permutation-importance.png",
+    "docs/assets/action-mix.png",
+    "docs/assets/outcome-by-action.png",
+    "docs/assets/review-hours.png"
+  ]
+}

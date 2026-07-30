@@ -1,10 +1,18 @@
-# Can Historical Search Signals Prioritise Pages for Content Review? A Leakage-Safe Grouped-Client Study
+# Refresh and Content Opportunity Scoring Using Historical Search Signals: A Leakage-Safe Grouped-Client Machine Learning Study
 
 **Author:** Zafar Ullah  
+**Affiliation:** Department of Computer Science, University of Technology Mardan, Pakistan  
+**Corresponding email:** zafarullah1385@gmail.com  
+**ORCID:** Not available  
+**Paper type:** Technical Report  
+**Version:** 1.1 (Pre-DOI)  
+**License:** CC BY 4.0  
+**DOI:** To be assigned  
 **Lane:** Refresh / Content Opportunity Scoring  
-**Repo:** https://github.com/Zafar488/flyrank-ml-internship  
+**Repository:** https://github.com/Zafar488/flyrank-ml-internship  
 **Deployed paper:** https://zafar488.github.io/flyrank-ml-internship/  
-**Date:** 2026-07-30  
+**Searchable PDF:** https://zafar488.github.io/flyrank-ml-internship/paper.pdf  
+**Publication date:** 2026-07-30  
 
 ## Abstract
 
@@ -12,7 +20,7 @@ This study asks whether historical search-performance signals can prioritise eli
 
 ## 1. Problem Framing
 
-Can historical prediction-time search-performance signals rank eligible content pages so that the first 50 human-reviewed pages contain a higher observed later-decline rate than a transparent fixed-rule baseline?
+Can historical prediction-time search-performance signals rank eligible pages so that the first 50 human-reviewed pages contain a higher observed later-decline rate than a transparent fixed-rule baseline?
 
 The output is a ranked page-review queue. A human uses the score,
 action, reason code, and confidence note to decide what to inspect
@@ -79,12 +87,43 @@ pip install -r requirements.txt
 jupyter nbconvert --execute --to notebook --inplace work/notebooks/capstone.ipynb
 ```
 
-Seed: 42. Dataset access requires HF_TOKEN.
+Seed: 42. Dataset access requires an authorised read token stored
+securely outside the notebook.
 
-## Limitations
+Software environment:
+
+| component                   | version_or_setting   |
+|:----------------------------|:---------------------|
+| python                      | 3.12.13              |
+| execution_environment       | Google Colab         |
+| pandas                      | 2.2.2                |
+| numpy                       | 2.0.2                |
+| scikit-learn                | 1.6.1                |
+| matplotlib                  | 3.10.0               |
+| duckdb                      | 1.3.2                |
+| huggingface_hub             | 1.23.0               |
+| joblib                      | 1.5.3                |
+| pypdf                       | 6.14.2               |
+| random_seed                 | 42                   |
+| grouped_validation_fraction | 0.25                 |
+
+## 9. Limitations
 
 On one grouped-client holdout, Logistic Regression measured a Precision@50 of 0.640, compared with 0.520 for the frozen ML-07 baseline, an absolute measured difference of 0.120. This observed result supports directional human decision-support for content-review prioritisation within the March 2026 evaluation design. It does not establish causal refresh impact, guarantee future performance, or support automatic content changes.
 
-## Acknowledgments and Data Credit
+## 10. AI Assistance Disclosure
+
+Generative AI tools were used to support code drafting, document
+structuring, language refinement, and quality checks. The author
+reviewed the analysis, verified the reported results against executed
+notebooks, and accepts responsibility for the final manuscript.
+
+## 11. Publication Integrity
+
+PDF pages: 16  
+PDF SHA-256: `f505dd6ac1e1db32404884e9533e10ed7d567ece51f4fa46e228845b633f4957`  
+License: [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)  
+
+## 12. Acknowledgments and Data Credit
 
 Built on the [FlyRank ML Internship dataset](https://flyrank.ai).

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zafar488.github.io/flyrank-ml-internship/sitemap.xml

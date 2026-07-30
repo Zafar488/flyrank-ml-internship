@@ -3,13 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Can Historical Search Signals Prioritise Pages for Content Review? A Leakage-Safe Grouped-Client Study</title>
-  <meta name="description" content="A grouped-client machine-learning study of page-level content-review prioritisation using organic search signals.">
+  <title>Refresh and Content Opportunity Scoring Using Historical Search Signals: A Leakage-Safe Grouped-Client Machine Learning Study</title>
+  <meta name="description" content="A grouped-client machine-learning study of refresh and content opportunity scoring using organic search signals.">
   <link rel="canonical" href="https://zafar488.github.io/flyrank-ml-internship/">
-  <meta property="og:title" content="Can Historical Search Signals Prioritise Pages for Content Review? A Leakage-Safe Grouped-Client Study">
+  <meta name="citation_title" content="Refresh and Content Opportunity Scoring Using Historical Search Signals: A Leakage-Safe Grouped-Client Machine Learning Study">
+  <meta name="citation_author" content="Zafar Ullah">
+  <meta name="citation_author_institution" content="Department of Computer Science, University of Technology Mardan, Pakistan">
+  <meta name="citation_author_email" content="zafarullah1385@gmail.com">
+  <meta name="citation_publication_date" content="2026/07/30">
+  <meta name="citation_pdf_url" content="https://zafar488.github.io/flyrank-ml-internship/paper.pdf">
+  <meta name="citation_technical_report_institution" content="Department of Computer Science, University of Technology Mardan, Pakistan">
+  <meta name="citation_technical_report_number" content="ML-11-v1.1">
+  <meta name="citation_language" content="en">
+  <meta name="citation_keywords" content="search engine optimization, content refresh, content opportunity scoring, grouped validation, data leakage, logistic regression, decision support">
+  <meta name="citation_abstract" content="This study asks whether historical search-performance signals can prioritise eligible content pages for human review. Using 9,841,378 daily warehouse rows from March 2026, it creates 34,038 eligible anonymised client-page records from separated feature and outcome windows. A transparent ML-07 baseline, Logistic Regression, and Random Forest are evaluated on the same grouped-client holdout, while a deliberate future-field experiment audits leakage. Logistic Regression measured a Precision@50 of 0.640 compared with 0.520 for the frozen baseline, while the validation base rate was 0.301. The observed result supports directional human decision-support and does not establish causal refresh impact, guaranteed recovery, or automatic editing.">
+  
+  <meta property="og:title" content="Refresh and Content Opportunity Scoring Using Historical Search Signals: A Leakage-Safe Grouped-Client Machine Learning Study">
   <meta property="og:description" content="Logistic Regression measured Precision@50 of 0.640 versus 0.520 for a transparent baseline.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://zafar488.github.io/flyrank-ml-internship/">
+  <meta property="og:image" content="https://zafar488.github.io/flyrank-ml-internship/assets/model-vs-baseline.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": "Refresh and Content Opportunity Scoring Using Historical Search Signals: A Leakage-Safe Grouped-Client Machine Learning Study", "alternativeHeadline": "Refresh and Content Opportunity Scoring", "author": {"@type": "Person", "name": "Zafar Ullah", "email": "zafarullah1385@gmail.com", "affiliation": {"@type": "Organization", "name": "Department of Computer Science, University of Technology Mardan, Pakistan"}}, "datePublished": "2026-07-30", "dateModified": "2026-07-30", "version": "1.1", "isAccessibleForFree": true, "license": "https://creativecommons.org/licenses/by/4.0/", "url": "https://zafar488.github.io/flyrank-ml-internship/", "mainEntityOfPage": "https://zafar488.github.io/flyrank-ml-internship/", "encoding": {"@type": "MediaObject", "contentUrl": "https://zafar488.github.io/flyrank-ml-internship/paper.pdf", "encodingFormat": "application/pdf", "sha256": "f505dd6ac1e1db32404884e9533e10ed7d567ece51f4fa46e228845b633f4957"}, "keywords": ["search engine optimization", "content refresh", "content opportunity scoring", "grouped validation", "data leakage", "logistic regression", "decision support"], "abstract": "This study asks whether historical search-performance signals can prioritise eligible content pages for human review. Using 9,841,378 daily warehouse rows from March 2026, it creates 34,038 eligible anonymised client-page records from separated feature and outcome windows. A transparent ML-07 baseline, Logistic Regression, and Random Forest are evaluated on the same grouped-client holdout, while a deliberate future-field experiment audits leakage. Logistic Regression measured a Precision@50 of 0.640 compared with 0.520 for the frozen baseline, while the validation base rate was 0.301. The observed result supports directional human decision-support and does not establish causal refresh impact, guaranteed recovery, or automatic editing."}</script>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -17,14 +31,21 @@
 
   <header class="site-header">
     <div class="header-inner">
-      <p class="eyebrow">ML-11 | Applied Search Intelligence</p>
-      <h1>Can Historical Search Signals Prioritise Pages for Content Review? A Leakage-Safe Grouped-Client Study</h1>
+      <p class="eyebrow">ML-11 | Refresh / Content Opportunity Scoring</p>
+      <h1>Refresh and Content Opportunity Scoring Using Historical Search Signals: A Leakage-Safe Grouped-Client Machine Learning Study</h1>
       <p class="subtitle">A reproducible decision-support study built from separated windows, grouped-client validation, leakage auditing, and a human-reviewed action playbook.</p>
       <div class="meta-row">
         <span class="meta-chip">Author: Zafar Ullah</span>
-        <span class="meta-chip">March 2026 release</span>
+        <span class="meta-chip">Department of Computer Science, University of Technology Mardan, Pakistan</span>
+        <span class="meta-chip">Technical Report v1.1</span>
+        <span class="meta-chip">Pre-DOI</span>
         <span class="meta-chip">Precision@50</span>
         <span class="meta-chip">Human review required</span>
+      </div>
+      <div class="action-row">
+        <a class="primary-button" href="paper.pdf">Download searchable PDF</a>
+        <a class="secondary-button" href="literature.html">Verified literature</a>
+        <a class="secondary-button" href="https://github.com/Zafar488/flyrank-ml-internship">View repository</a>
       </div>
     </div>
   </header>
@@ -32,6 +53,7 @@
   <nav class="site-nav" aria-label="Paper sections">
     <ul>
       <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#publication">Publication</a></li>
       <li><a href="#introduction">Problem</a></li>
       <li><a href="#data">Data</a></li>
       <li><a href="#methodology">Method</a></li>
@@ -39,6 +61,7 @@
       <li><a href="#limitations">Limits</a></li>
       <li><a href="#recommendations">Actions</a></li>
       <li><a href="#reproducibility">Reproduce</a></li>
+      <li><a href="#declarations">Declarations</a></li>
       <li><a href="#credit">Credit</a></li>
     </ul>
   </nav>
@@ -50,10 +73,23 @@
         <p class="abstract">This study asks whether historical search-performance signals can prioritise eligible content pages for human review. Using 9,841,378 daily warehouse rows from March 2026, it creates 34,038 eligible anonymised client-page records from separated feature and outcome windows. A transparent ML-07 baseline, Logistic Regression, and Random Forest are evaluated on the same grouped-client holdout, while a deliberate future-field experiment audits leakage. Logistic Regression measured a Precision@50 of 0.640 compared with 0.520 for the frozen baseline, while the validation base rate was 0.301. The observed result supports directional human decision-support and does not establish causal refresh impact, guaranteed recovery, or automatic editing.</p>
       </section>
 
+      <section id="publication" class="paper-section">
+        <h2>Publication Status</h2>
+        <div class="publication-grid">
+          <div class="publication-item"><strong>Paper type</strong><br>Technical Report</div>
+          <div class="publication-item"><strong>Version</strong><br>1.1 (Pre-DOI)</div>
+          <div class="publication-item"><strong>Publication date</strong><br>2026-07-30</div>
+          <div class="publication-item"><strong>License</strong><br><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></div>
+          <div class="publication-item"><strong>DOI</strong><br>To be assigned</div>
+          <div class="publication-item"><strong>PDF integrity</strong><br>16 pages · SHA-256 f505dd6ac1e1db32…</div>
+        </div>
+        <p><strong>Corresponding author:</strong> <a href="mailto:zafarullah1385@gmail.com">zafarullah1385@gmail.com</a></p>
+      </section>
+
       <section id="introduction" class="paper-section">
         <h2>Introduction and Problem Statement</h2>
         <p>Large websites can contain more pages than a content team can inspect in one cycle. The operational problem is not automatic editing; it is deciding what a person should inspect first.</p>
-        <div class="callout"><strong>Research question.</strong> Can historical prediction-time search-performance signals rank eligible content pages so that the first 50 human-reviewed pages contain a higher observed later-decline rate than a transparent fixed-rule baseline?</div>
+        <div class="callout"><strong>Research question.</strong> Can historical prediction-time search-performance signals rank eligible pages so that the first 50 human-reviewed pages contain a higher observed later-decline rate than a transparent fixed-rule baseline?</div>
         <h3>Research Gap</h3>
         <p>Prior work commonly studies ranking-factor correlations, single-site outcomes, organisational practices, search-result reranking, or machine-readable content separately. In the reviewed literature, limited work combines real multi-client search data, separated prediction and outcome windows, grouped-client validation, a transparent baseline, leakage auditing, and a human-reviewed action playbook in one reproducible workflow.</p>
         <p>This paper contributes an applied validation and decision-support workflow rather than a novel learning algorithm.</p>
@@ -93,12 +129,12 @@
     <tr>
       <td>Before — random row split</td>
       <td>8510</td>
+      <td>29</td>
       <td>26</td>
-      <td>25</td>
       <td>0.3089</td>
-      <td>0.54</td>
-      <td>0.4116</td>
-      <td>0.6381</td>
+      <td>0.50</td>
+      <td>0.4075</td>
+      <td>0.6317</td>
     </tr>
     <tr>
       <td>After — grouped client split</td>
@@ -147,6 +183,15 @@
       <td>0.6175</td>
     </tr>
     <tr>
+      <td>Random Forest</td>
+      <td>0.3008</td>
+      <td>0.40</td>
+      <td>0.52</td>
+      <td>0.2192</td>
+      <td>0.3909</td>
+      <td>0.6211</td>
+    </tr>
+    <tr>
       <td>ML-07 Baseline</td>
       <td>0.3008</td>
       <td>0.55</td>
@@ -154,15 +199,6 @@
       <td>0.2192</td>
       <td>0.3776</td>
       <td>0.6059</td>
-    </tr>
-    <tr>
-      <td>Random Forest</td>
-      <td>0.3008</td>
-      <td>0.50</td>
-      <td>0.50</td>
-      <td>0.1992</td>
-      <td>0.3904</td>
-      <td>0.6208</td>
     </tr>
   </tbody>
 </table></div>
@@ -188,44 +224,44 @@
   <tbody>
     <tr>
       <td>feature_ctr</td>
-      <td>0.07161</td>
-      <td>0.00237</td>
+      <td>0.07317</td>
+      <td>0.00360</td>
       <td>True</td>
     </tr>
     <tr>
       <td>position_band</td>
-      <td>0.03454</td>
-      <td>0.00195</td>
+      <td>0.03472</td>
+      <td>0.00268</td>
       <td>True</td>
     </tr>
     <tr>
       <td>feature_avg_position</td>
-      <td>0.01654</td>
-      <td>0.00228</td>
+      <td>0.01569</td>
+      <td>0.00336</td>
       <td>True</td>
     </tr>
     <tr>
       <td>feature_position_volatility</td>
-      <td>0.01286</td>
-      <td>0.00194</td>
+      <td>0.01250</td>
+      <td>0.00167</td>
       <td>True</td>
     </tr>
     <tr>
       <td>log_feature_impressions</td>
-      <td>0.00021</td>
-      <td>0.00109</td>
+      <td>0.00108</td>
+      <td>0.00117</td>
       <td>False</td>
     </tr>
     <tr>
       <td>feature_clicks</td>
-      <td>0.00010</td>
-      <td>0.00012</td>
-      <td>False</td>
+      <td>0.00030</td>
+      <td>0.00014</td>
+      <td>True</td>
     </tr>
     <tr>
       <td>feature_active_days</td>
-      <td>-0.00154</td>
-      <td>0.00056</td>
+      <td>-0.00138</td>
+      <td>0.00080</td>
       <td>False</td>
     </tr>
   </tbody>
@@ -373,25 +409,79 @@ cd flyrank-ml-internship
 pip install -r requirements.txt
 jupyter nbconvert --execute --to notebook --inplace work/notebooks/capstone.ipynb</pre>
         <p>Dataset access requires an approved Hugging Face Read token stored securely outside the notebook. Seed: 42. Grouped validation fraction: 0.25.</p>
+        <h3>Software Environment</h3>
+        <div class="table-wrap"><table class="dataframe research-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>component</th>
+      <th>version_or_setting</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>python</td>
+      <td>3.12.13</td>
+    </tr>
+    <tr>
+      <td>execution_environment</td>
+      <td>Google Colab</td>
+    </tr>
+    <tr>
+      <td>pandas</td>
+      <td>2.2.2</td>
+    </tr>
+    <tr>
+      <td>numpy</td>
+      <td>2.0.2</td>
+    </tr>
+    <tr>
+      <td>scikit-learn</td>
+      <td>1.6.1</td>
+    </tr>
+    <tr>
+      <td>matplotlib</td>
+      <td>3.10.0</td>
+    </tr>
+    <tr>
+      <td>duckdb</td>
+      <td>1.3.2</td>
+    </tr>
+    <tr>
+      <td>huggingface_hub</td>
+      <td>1.23.0</td>
+    </tr>
+    <tr>
+      <td>joblib</td>
+      <td>1.5.3</td>
+    </tr>
+    <tr>
+      <td>pypdf</td>
+      <td>6.14.2</td>
+    </tr>
+    <tr>
+      <td>random_seed</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <td>grouped_validation_fraction</td>
+      <td>0.25</td>
+    </tr>
+  </tbody>
+</table></div>
+        <p><a href="paper-metadata.json">Machine-readable publication metadata</a> · <a href="https://github.com/Zafar488/flyrank-ml-internship/blob/main/CITATION.cff">Citation file</a> · <a href="paper.pdf">Searchable PDF</a></p>
+      </section>
+
+      <section id="declarations" class="paper-section">
+        <h2>Declarations and AI Assistance Disclosure</h2>
+        <p><strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">Creative Commons Attribution 4.0 International</a>.</p>
+        <p><strong>Conflict of interest:</strong> The author declares no conflict of interest.</p>
+        <p><strong>Funding:</strong> No external funding was received for this study.</p>
+        <p><strong>AI assistance disclosure:</strong> Generative AI tools were used to support code drafting, document structuring, language refinement, and quality checks. The author reviewed the analysis, verified the reported results against executed notebooks, and accepts responsibility for the final manuscript.</p>
       </section>
 
       <section id="references" class="paper-section">
         <h2>Selected References</h2>
-        
-<ol>
-  <li>Manetti, G. (2026). <em>Google Italy Ranking Factors 2026.</em>
-  <a href="https://doi.org/10.5281/zenodo.20797976" target="_blank" rel="noopener">Public record</a>.</li>
-  <li>Alhenshiri, A., Jelwal, A., and Badesh, H. (2026).
-  <em>Behavior-Driven Semantic Re-Ranking for Personalized Web Search.</em>
-  <a href="https://doi.org/10.26629/jtr.2026.01" target="_blank" rel="noopener">DOI</a>.</li>
-  <li>FlyRank. (2026). <em>The State of AI-Driven SEO in Numbers.</em>
-  <a href="https://github.com/flyrank-bih/flyrank-ml-internship-starter/blob/main/docs/flyrank-seo-research-march-2026.pdf" target="_blank" rel="noopener">Research paper</a>.</li>
-  <li>Wen, Y., et al. (2026). <em>Generative Engine Optimization Creates Underexamined Risks.</em>
-  <a href="https://arxiv.org/abs/2606.12439" target="_blank" rel="noopener">arXiv</a>.</li>
-  <li>Google Search Central. <em>Creating Helpful, Reliable, People-First Content.</em>
-  <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" target="_blank" rel="noopener">Guidance</a>.</li>
-</ol>
-
+        <ol><li>FlyRank. (2026). The State of AI-Driven SEO in Numbers. <a href="https://github.com/flyrank-bih/flyrank-ml-internship-starter/blob/main/docs/flyrank-seo-research-march-2026.pdf" target="_blank" rel="noopener">Research paper</a>.</li><li>Manetti, G. (2026). Google Italy Ranking Factors 2026. <a href="https://doi.org/10.5281/zenodo.20797976" target="_blank" rel="noopener">DOI</a>.</li><li>Alhenshiri, A., Jelwal, A., &amp; Badesh, H. (2026). Behavior-Driven Semantic Re-Ranking for Personalized Web Search. <a href="https://doi.org/10.26629/jtr.2026.01" target="_blank" rel="noopener">DOI</a>.</li><li>Reji, M. (2026). Success Factors in Search Engine Optimization. <a href="https://esource.dbs.ie/server/api/core/bitstreams/ff3ad34d-f01d-4f39-9a5c-6af4e2a1ad59/content" target="_blank" rel="noopener">Repository PDF</a>.</li><li>Wen, Y., et al. (2026). Generative Engine Optimization Creates Underexamined Risks. <a href="https://arxiv.org/abs/2606.12439" target="_blank" rel="noopener">arXiv</a>.</li><li>Muñoz Tebar, S. (2026). Large Language Models and the Future of SEO. <a href="https://doi.org/10.13140/RG.2.2.15044.49289" target="_blank" rel="noopener">DOI</a>.</li><li>Zulkarnain, P. D., et al. (2026). On-Page Techniques for Improved Google Search Engine Ranking: A Tourism Village Approach. <a href="https://sinta.kemdiktisaintek.go.id/departments/profile/1511/13E85C3F-5D8C-4284-9190-03013FAE33F3/F63CB492-4079-42A0-A4BB-7C03BB82B486/?view=googlescholar" target="_blank" rel="noopener">SINTA record</a>.</li><li>Akash Raj M, Ashwin V, &amp; Anitha Moses V. (2026). SmartSEO. <a href="https://ijasit.org/index.php/home/article/view/3" target="_blank" rel="noopener">Article page</a>.</li><li>Kargaev, D. (2026). The SEO-to-GEO Gap. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6476021" target="_blank" rel="noopener">SSRN</a>.</li><li>Pedregosa, F., et al. (2011). Scikit-learn: Machine Learning in Python. <a href="https://jmlr.org/papers/v12/pedregosa11a.html" target="_blank" rel="noopener">JMLR</a>.</li><li>Breiman, L. (2001). Random Forests. <a href="https://doi.org/10.1023/A:1010933404324" target="_blank" rel="noopener">DOI</a>.</li><li>Davis, J., &amp; Goadrich, M. (2006). The Relationship Between Precision-Recall and ROC Curves. <a href="https://doi.org/10.1145/1143844.1143874" target="_blank" rel="noopener">DOI</a>.</li></ol>
       </section>
 
       <section id="credit" class="paper-section">
@@ -402,7 +492,7 @@ jupyter nbconvert --execute --to notebook --inplace work/notebooks/capstone.ipyn
   </main>
 
   <footer>
-    <p>2026 Zafar Ullah | Decision-support research artifact | <a href="https://github.com/Zafar488/flyrank-ml-internship">View repository</a></p>
+    <p>2026 Zafar Ullah | Technical Report v1.1 | <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> | <a href="paper.pdf">PDF</a> | <a href="https://github.com/Zafar488/flyrank-ml-internship">Repository</a></p>
   </footer>
 </body>
 </html>
