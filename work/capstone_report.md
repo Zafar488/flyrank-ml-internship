@@ -1,11 +1,11 @@
 # Refresh and Content Opportunity Scoring Using Historical Search Signals: A Leakage-Safe Grouped-Client Machine Learning Study
 
 **Author:** Zafar Ullah  
-**Affiliation:** Department of Computer Science, University of Technology Mardan, Pakistan  
+**Affiliation:** Department of Computer Science, University of Engineering & Technology Mardan, Pakistan  
 **Corresponding email:** zafarullah1385@gmail.com  
 **ORCID:** Not available  
 **Paper type:** Technical Report  
-**Version:** 1.1 (Pre-DOI)  
+**Version:** 1.2 (Pre-DOI)  
 **License:** CC BY 4.0  
 **DOI:** To be assigned  
 **Lane:** Refresh / Content Opportunity Scoring  
@@ -121,7 +121,7 @@ notebooks, and accepts responsibility for the final manuscript.
 ## 11. Publication Integrity
 
 PDF pages: 16  
-PDF SHA-256: `f505dd6ac1e1db32404884e9533e10ed7d567ece51f4fa46e228845b633f4957`  
+PDF SHA-256: `590e4e3c06be662e2198598bd2d814066c51765438ab754dc6fb51c282e6a4f6`  
 License: [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)  
 
 ## 12. Acknowledgments and Data Credit

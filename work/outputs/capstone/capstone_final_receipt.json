@@ -8,9 +8,9 @@
   "searchable_pdf": "docs/paper.pdf",
   "verified_literature_page": "docs/literature.html",
   "citation_file": "CITATION.cff",
-  "paper_sha256": "f505dd6ac1e1db32404884e9533e10ed7d567ece51f4fa46e228845b633f4957",
+  "paper_sha256": "590e4e3c06be662e2198598bd2d814066c51765438ab754dc6fb51c282e6a4f6",
   "paper_pages": 16,
-  "paper_version": "1.1",
+  "paper_version": "1.2",
   "publication_status": "Pre-DOI",
   "report": "work/capstone_report.md",
   "assets": [

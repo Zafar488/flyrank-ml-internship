@@ -5,9 +5,9 @@ type: report
 authors:
   - family-names: "Ullah"
     given-names: "Zafar"
-    affiliation: "Department of Computer Science, University of Technology Mardan, Pakistan"
+    affiliation: "Department of Computer Science, University of Engineering & Technology Mardan, Pakistan"
     email: "zafarullah1385@gmail.com"
-version: "1.1"
+version: "1.2"
 date-released: "2026-07-30"
 url: "https://zafar488.github.io/flyrank-ml-internship/"
 repository-code: "https://github.com/Zafar488/flyrank-ml-internship"
