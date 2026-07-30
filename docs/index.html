@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Can Historical Search Signals Prioritise Pages for Content Review? A Leakage-Safe Grouped-Client Study</title>
+  <meta name="description" content="A grouped-client machine-learning study of page-level content-review prioritisation using organic search signals.">
+  <link rel="canonical" href="https://zafar488.github.io/flyrank-ml-internship/">
+  <meta property="og:title" content="Can Historical Search Signals Prioritise Pages for Content Review? A Leakage-Safe Grouped-Client Study">
+  <meta property="og:description" content="Logistic Regression measured Precision@50 of 0.640 versus 0.520 for a transparent baseline.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zafar488.github.io/flyrank-ml-internship/">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="eyebrow">ML-11 | Applied Search Intelligence</p>
+      <h1>Can Historical Search Signals Prioritise Pages for Content Review? A Leakage-Safe Grouped-Client Study</h1>
+      <p class="subtitle">A reproducible decision-support study built from separated windows, grouped-client validation, leakage auditing, and a human-reviewed action playbook.</p>
+      <div class="meta-row">
+        <span class="meta-chip">Author: Zafar Ullah</span>
+        <span class="meta-chip">March 2026 release</span>
+        <span class="meta-chip">Precision@50</span>
+        <span class="meta-chip">Human review required</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-nav" aria-label="Paper sections">
+    <ul>
+      <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#introduction">Problem</a></li>
+      <li><a href="#data">Data</a></li>
+      <li><a href="#methodology">Method</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#limitations">Limits</a></li>
+      <li><a href="#recommendations">Actions</a></li>
+      <li><a href="#reproducibility">Reproduce</a></li>
+      <li><a href="#credit">Credit</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content" class="page-shell">
+    <article>
+      <section id="abstract" class="paper-section">
+        <h2>Abstract</h2>
+        <p class="abstract">This study asks whether historical search-performance signals can prioritise eligible content pages for human review. Using 9,841,378 daily warehouse rows from March 2026, it creates 34,038 eligible anonymised client-page records from separated feature and outcome windows. A transparent ML-07 baseline, Logistic Regression, and Random Forest are evaluated on the same grouped-client holdout, while a deliberate future-field experiment audits leakage. Logistic Regression measured a Precision@50 of 0.640 compared with 0.520 for the frozen baseline, while the validation base rate was 0.301. The observed result supports directional human decision-support and does not establish causal refresh impact, guaranteed recovery, or automatic editing.</p>
+      </section>
+
+      <section id="introduction" class="paper-section">
+        <h2>Introduction and Problem Statement</h2>
+        <p>Large websites can contain more pages than a content team can inspect in one cycle. The operational problem is not automatic editing; it is deciding what a person should inspect first.</p>
+        <div class="callout"><strong>Research question.</strong> Can historical prediction-time search-performance signals rank eligible content pages so that the first 50 human-reviewed pages contain a higher observed later-decline rate than a transparent fixed-rule baseline?</div>
+        <h3>Research Gap</h3>
+        <p>Prior work commonly studies ranking-factor correlations, single-site outcomes, organisational practices, search-result reranking, or machine-readable content separately. In the reviewed literature, limited work combines real multi-client search data, separated prediction and outcome windows, grouped-client validation, a transparent baseline, leakage auditing, and a human-reviewed action playbook in one reproducible workflow.</p>
+        <p>This paper contributes an applied validation and decision-support workflow rather than a novel learning algorithm.</p>
+      </section>
+
+      <section id="data" class="paper-section">
+        <h2>Data</h2>
+        <div class="metric-grid">
+          <div class="metric-card"><span class="metric-value">9,841,378</span><span class="metric-label">daily source rows in March</span></div>
+          <div class="metric-card"><span class="metric-value">34,038</span><span class="metric-label">eligible client-page rows</span></div>
+          <div class="metric-card"><span class="metric-value">32</span><span class="metric-label">eligible anonymised clients</span></div>
+          <div class="metric-card"><span class="metric-value">0.301</span><span class="metric-label">validation positive base rate</span></div>
+        </div>
+        <p>Features use March 1-15 and the later proxy uses March 16-31. Eligible pages have at least 500 feature-window impressions, five available days in each window, valid CTR, and average position above zero through 20.</p>
+        <p>Client names, raw URLs, domains, private queries, tokens, and business identifiers are excluded. Pseudonymous IDs do not appear on this page.</p>
+      </section>
+
+      <section id="methodology" class="paper-section">
+        <h2>Methodology</h2>
+        <p>A page receives the retrospective decline proxy when outcome-window average daily impressions are below 80% of the feature-window average. Seven prediction-time features describe impressions, clicks, CTR, average position, active days, position volatility, and position band.</p>
+        <p>The frozen baseline combines 70% position-adjusted CTR weakness and 30% visibility percentile. Logistic Regression is the primary interpretable model; Random Forest is retained only if it earns the pre-declared improvement.</p>
+        <p>The retained design holds out entire clients with test size 25% and seed 42. All methods use the same validation rows and metrics.</p>
+        <div class="table-wrap"><table class="dataframe research-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>method</th>
+      <th>validation_rows</th>
+      <th>validation_clients</th>
+      <th>client_overlap</th>
+      <th>base_rate</th>
+      <th>precision@50</th>
+      <th>average_precision</th>
+      <th>roc_auc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Before — random row split</td>
+      <td>8510</td>
+      <td>26</td>
+      <td>25</td>
+      <td>0.3089</td>
+      <td>0.54</td>
+      <td>0.4116</td>
+      <td>0.6381</td>
+    </tr>
+    <tr>
+      <td>After — grouped client split</td>
+      <td>15963</td>
+      <td>8</td>
+      <td>0</td>
+      <td>0.3008</td>
+      <td>0.64</td>
+      <td>0.3939</td>
+      <td>0.6175</td>
+    </tr>
+  </tbody>
+</table></div>
+        <h3>Leakage Audit</h3>
+        <p>Outcome fields, the target, identifiers, existing scores, and product flags are excluded. An outcome-derived decline ratio produced near-perfect metrics, demonstrating why it is removed.</p>
+      </section>
+
+      <section id="results" class="paper-section">
+        <h2>Results</h2>
+        <div class="metric-grid">
+          <div class="metric-card"><span class="metric-value">0.520</span><span class="metric-label">baseline Precision@50</span></div>
+          <div class="metric-card"><span class="metric-value">0.640</span><span class="metric-label">Logistic Regression Precision@50</span></div>
+          <div class="metric-card"><span class="metric-value">+0.120</span><span class="metric-label">absolute measured difference</span></div>
+          <div class="metric-card"><span class="metric-value">32/50</span><span class="metric-label">proxy positives in model top 50</span></div>
+        </div>
+        <div class="table-wrap"><table class="dataframe research-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>method</th>
+      <th>base_rate</th>
+      <th>precision@20</th>
+      <th>precision@50</th>
+      <th>lift@50_vs_base_rate</th>
+      <th>average_precision</th>
+      <th>roc_auc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Logistic Regression</td>
+      <td>0.3008</td>
+      <td>0.50</td>
+      <td>0.64</td>
+      <td>0.3392</td>
+      <td>0.3939</td>
+      <td>0.6175</td>
+    </tr>
+    <tr>
+      <td>ML-07 Baseline</td>
+      <td>0.3008</td>
+      <td>0.55</td>
+      <td>0.52</td>
+      <td>0.2192</td>
+      <td>0.3776</td>
+      <td>0.6059</td>
+    </tr>
+    <tr>
+      <td>Random Forest</td>
+      <td>0.3008</td>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0.1992</td>
+      <td>0.3904</td>
+      <td>0.6208</td>
+    </tr>
+  </tbody>
+</table></div>
+        <figure>
+          <img src="assets/model-vs-baseline.png" alt="Bar chart comparing Precision at 50, Average Precision, and ROC-AUC for the baseline, Logistic Regression, and Random Forest, with the validation base rate as a reference.">
+          <figcaption>Logistic Regression measured the strongest top-50 queue. This is not a causal estimate.</figcaption>
+        </figure>
+        <h3>Errors and Interpretation</h3>
+        <p>At the 0.50 threshold, measured accuracy was 0.562, below the majority-class accuracy of 0.699. The ranked review queue is the useful product.</p>
+        <figure>
+          <img src="assets/permutation-importance.png" alt="Horizontal bar chart showing CTR, position band, average position, and position volatility as the strongest measured sources of model reliance.">
+          <figcaption>Permutation importance describes model reliance, not causal effects. Position band is derived from average position.</figcaption>
+        </figure>
+        <div class="table-wrap"><table class="dataframe research-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>feature</th>
+      <th>importance_mean</th>
+      <th>importance_std</th>
+      <th>stable_positive</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>feature_ctr</td>
+      <td>0.07161</td>
+      <td>0.00237</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>position_band</td>
+      <td>0.03454</td>
+      <td>0.00195</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>feature_avg_position</td>
+      <td>0.01654</td>
+      <td>0.00228</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>feature_position_volatility</td>
+      <td>0.01286</td>
+      <td>0.00194</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>log_feature_impressions</td>
+      <td>0.00021</td>
+      <td>0.00109</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>feature_clicks</td>
+      <td>0.00010</td>
+      <td>0.00012</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>feature_active_days</td>
+      <td>-0.00154</td>
+      <td>0.00056</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table></div>
+      </section>
+
+      <section id="limitations" class="paper-section">
+        <h2>Limitations and Honest Framing</h2>
+        <div class="callout limit">On one grouped-client holdout, Logistic Regression measured a Precision@50 of 0.640, compared with 0.520 for the frozen ML-07 baseline, an absolute measured difference of 0.120. This observed result supports directional human decision-support for content-review prioritisation within the March 2026 evaluation design. It does not establish causal refresh impact, guarantee future performance, or support automatic content changes.</div>
+        <ul><li><strong>Observational proxy label:</strong> The model ranks pages associated with a later impression-decline proxy.</li><li><strong>One grouped holdout and one month:</strong> The numbers are measured on the retained March 2026 holdout.</li><li><strong>Incomplete explanatory view:</strong> The score is one input to a wider page-level investigation.</li><li><strong>No intervention experiment:</strong> Actions indicate review priority, not treatment effect.</li><li><strong>No monetary outcome:</strong> Visibility and review time are planning proxies.</li><li><strong>Weak diagnostic threshold result:</strong> The useful measured output is the ranked top-50 review queue.</li></ul>
+      </section>
+
+      <section id="recommendations" class="paper-section">
+        <h2>Ranked Recommendations</h2>
+        <p>The validated score is converted into review archetypes with reason codes, confidence notes, and planning effort. Actions use prediction-time information and training-referenced thresholds.</p>
+        <div class="table-wrap"><table class="dataframe research-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>action_label</th>
+      <th>reason_code</th>
+      <th>pages</th>
+      <th>observed_decline_rate_pct</th>
+      <th>median_priority</th>
+      <th>estimated_review_hours</th>
+      <th>claim_status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MONITOR</td>
+      <td>LIMITED_FEATURE_HISTORY</td>
+      <td>26</td>
+      <td>65.38</td>
+      <td>46.64</td>
+      <td>4.33</td>
+      <td>INSUFFICIENT_N_FOR_HEADLINE</td>
+    </tr>
+    <tr>
+      <td>CTR_REVIEW</td>
+      <td>CTR_GAP_HIGH_VISIBILITY</td>
+      <td>147</td>
+      <td>53.06</td>
+      <td>70.85</td>
+      <td>49.00</td>
+      <td>DESCRIPTIVE_WITH_N</td>
+    </tr>
+    <tr>
+      <td>REFRESH_REVIEW</td>
+      <td>HIGH_RISK_HIGH_VOLATILITY</td>
+      <td>706</td>
+      <td>44.48</td>
+      <td>58.22</td>
+      <td>1059.00</td>
+      <td>DESCRIPTIVE_WITH_N</td>
+    </tr>
+    <tr>
+      <td>REFRESH_AND_PROTECT</td>
+      <td>HIGH_RISK_STABLE_PAGE_1</td>
+      <td>546</td>
+      <td>42.86</td>
+      <td>58.54</td>
+      <td>682.50</td>
+      <td>DESCRIPTIVE_WITH_N</td>
+    </tr>
+    <tr>
+      <td>MANUAL_REVIEW</td>
+      <td>HIGH_RISK_NO_CLEAR_ARCHETYPE</td>
+      <td>934</td>
+      <td>41.76</td>
+      <td>58.40</td>
+      <td>467.00</td>
+      <td>DESCRIPTIVE_WITH_N</td>
+    </tr>
+    <tr>
+      <td>MONITOR</td>
+      <td>BORDERLINE_MEASURED_RISK</td>
+      <td>8412</td>
+      <td>32.14</td>
+      <td>58.72</td>
+      <td>1402.00</td>
+      <td>DESCRIPTIVE_WITH_N</td>
+    </tr>
+    <tr>
+      <td>NO_IMMEDIATE_ACTION</td>
+      <td>LOWER_MEASURED_PRIORITY</td>
+      <td>4809</td>
+      <td>21.52</td>
+      <td>46.86</td>
+      <td>0.00</td>
+      <td>DESCRIPTIVE_WITH_N</td>
+    </tr>
+    <tr>
+      <td>PROTECT</td>
+      <td>LOW_RISK_HIGH_VISIBILITY</td>
+      <td>382</td>
+      <td>7.59</td>
+      <td>50.47</td>
+      <td>95.50</td>
+      <td>DESCRIPTIVE_WITH_N</td>
+    </tr>
+    <tr>
+      <td>EXPAND_AND_OPTIMISE</td>
+      <td>HIGH_VALUE_PAGE_2</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>71.46</td>
+      <td>2.00</td>
+      <td>INSUFFICIENT_N_FOR_HEADLINE</td>
+    </tr>
+  </tbody>
+</table></div>
+        <figure>
+          <img src="assets/action-mix.png" alt="Horizontal bar chart showing the number of pages in each human-reviewed action category.">
+          <figcaption>Action volume is a planning view, not a causal benefit estimate.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/outcome-by-action.png" alt="Horizontal bar chart showing observed decline-proxy rates for action groups with at least 30 pages.">
+          <figcaption>Outcome rates are retrospective descriptions for groups with adequate sample size.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/review-hours.png" alt="Horizontal bar chart showing estimated human review hours by action category.">
+          <figcaption>Review time is a planning assumption, not measured labour cost or monetary ROI.</figcaption>
+        </figure>
+        <div class="two-column">
+          <div class="list-card"><h3>Mandatory Human Checks</h3><ol><li>Confirm current search intent and SERP format.</li><li>Inspect relevant query-level evidence.</li><li>Rule out indexing, canonical, redirect, rendering, and tracking issues.</li><li>Verify whether content is actually stale, inaccurate, or incomplete.</li><li>Check CTR in the context of position, volume, and SERP features.</li><li>Check brand, conversion, legal, compliance, and business role.</li><li>Check cannibalisation and internal-link relationships.</li><li>Assess the risk of damaging existing visibility.</li><li>Choose the final action only after page-level inspection.</li><li>Define an owner, measurement window, and rollback plan.</li></ol></div>
+          <div class="list-card"><h3>What Must Not Be Automated</h3><ul><li>Automatic publishing or rewriting.</li><li>Automatic deletion, redirect, canonical, or no-index decisions.</li><li>Automatic title, description, heading, or structured-data changes.</li><li>Causal claims from observational associations.</li><li>Exposure of client names, raw URLs, domains, or private queries.</li><li>Override of editorial, legal, brand, safety, or compliance review.</li><li>Action when data-quality or eligibility checks fail.</li><li>Treatment of a model score as a final editorial decision.</li></ul></div>
+        </div>
+      </section>
+
+      <section id="reproducibility" class="paper-section">
+        <h2>Reproducibility</h2>
+        <p>The notebooks, aggregate receipts, model configuration, seed, split design, and figures are stored in the public repository. Queue CSVs are regenerated and remain outside Git by design.</p>
+        
+<ul>
+  <li><a href="https://github.com/Zafar488/flyrank-ml-internship/blob/main/work/notebooks/w03_data_contract.ipynb">Data contract</a></li>
+  <li><a href="https://github.com/Zafar488/flyrank-ml-internship/blob/main/work/notebooks/w04_baseline_score.ipynb">Transparent baseline</a></li>
+  <li><a href="https://github.com/Zafar488/flyrank-ml-internship/blob/main/work/notebooks/w05_model.ipynb">Capstone model</a></li>
+  <li><a href="https://github.com/Zafar488/flyrank-ml-internship/blob/main/work/notebooks/w06_validation_audit.ipynb">Validation audit</a></li>
+  <li><a href="https://github.com/Zafar488/flyrank-ml-internship/blob/main/work/notebooks/w07_action_playbook.ipynb">Action playbook</a></li>
+  <li><a href="https://github.com/Zafar488/flyrank-ml-internship/blob/main/work/notebooks/capstone.ipynb">Capstone notebook</a></li>
+</ul>
+
+        <pre class="code-block">git clone https://github.com/Zafar488/flyrank-ml-internship
+cd flyrank-ml-internship
+pip install -r requirements.txt
+jupyter nbconvert --execute --to notebook --inplace work/notebooks/capstone.ipynb</pre>
+        <p>Dataset access requires an approved Hugging Face Read token stored securely outside the notebook. Seed: 42. Grouped validation fraction: 0.25.</p>
+      </section>
+
+      <section id="references" class="paper-section">
+        <h2>Selected References</h2>
+        
+<ol>
+  <li>Manetti, G. (2026). <em>Google Italy Ranking Factors 2026.</em>
+  <a href="https://doi.org/10.5281/zenodo.20797976" target="_blank" rel="noopener">Public record</a>.</li>
+  <li>Alhenshiri, A., Jelwal, A., and Badesh, H. (2026).
+  <em>Behavior-Driven Semantic Re-Ranking for Personalized Web Search.</em>
+  <a href="https://doi.org/10.26629/jtr.2026.01" target="_blank" rel="noopener">DOI</a>.</li>
+  <li>FlyRank. (2026). <em>The State of AI-Driven SEO in Numbers.</em>
+  <a href="https://github.com/flyrank-bih/flyrank-ml-internship-starter/blob/main/docs/flyrank-seo-research-march-2026.pdf" target="_blank" rel="noopener">Research paper</a>.</li>
+  <li>Wen, Y., et al. (2026). <em>Generative Engine Optimization Creates Underexamined Risks.</em>
+  <a href="https://arxiv.org/abs/2606.12439" target="_blank" rel="noopener">arXiv</a>.</li>
+  <li>Google Search Central. <em>Creating Helpful, Reliable, People-First Content.</em>
+  <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" target="_blank" rel="noopener">Guidance</a>.</li>
+</ol>
+
+      </section>
+
+      <section id="credit" class="paper-section">
+        <h2>Acknowledgments and Data Credit</h2>
+        <p>Built on the <a href="https://flyrank.ai" target="_blank" rel="noopener">FlyRank ML Internship dataset</a>. The author thanks the FlyRank internship team for the anonymised release and emphasis on honest validation and public-safe claims.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <p>2026 Zafar Ullah | Decision-support research artifact | <a href="https://github.com/Zafar488/flyrank-ml-internship">View repository</a></p>
+  </footer>
+</body>
+</html>
