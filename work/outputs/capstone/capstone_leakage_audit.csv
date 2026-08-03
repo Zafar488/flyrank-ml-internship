@@ -1,0 +1,5 @@
+check,matches,passed
+"No future, target, identifier, or decision-derived model feature",[],True
+Feature window ends before outcome window,[],True
+Grouped validation has zero client overlap,[],True
+Preprocessing is inside fitted pipelines,[],True

@@ -1,0 +1,7 @@
+limitation,cannot_claim,safe_framing
+Observational proxy label,The model identifies true causal content decay.,The model ranks pages associated with a later impression-decline proxy.
+One grouped holdout and one month,The result generalises unchanged to every future context.,The numbers are measured on the retained March 2026 holdout.
+Incomplete explanatory view,The features fully explain why a page changed.,The score is one input to a wider page-level investigation.
+No intervention experiment,The suggested action will recover traffic.,"Actions indicate review priority, not treatment effect."
+No monetary outcome,"The queue estimates revenue, profit, or ROI.",Visibility and review time are planning proxies.
+Weak diagnostic threshold result,The model is a reliable automatic binary decision engine.,The useful measured output is the ranked top-50 review queue.

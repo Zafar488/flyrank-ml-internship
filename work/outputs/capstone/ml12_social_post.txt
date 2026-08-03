@@ -1,0 +1,18 @@
+I completed a leakage-safe machine-learning capstone for content review
+prioritisation using 9,841,378
+anonymised daily search-performance records.
+
+On one grouped-client holdout with zero client overlap, Logistic
+Regression measured Precision@50 of 0.640, compared
+with 0.520 for a transparent frozen baseline. I
+also ran a deliberate leakage experiment: a future-derived field raised
+Average Precision from
+0.3939 to
+0.9999, demonstrating why
+availability-time validation matters.
+
+The final output is a public-safe, reason-coded, human-reviewed action
+queue—not an automatic SEO editing system or a causal claim.
+
+Research paper: https://zafar488.github.io/flyrank-ml-internship/
+Repository: https://github.com/Zafar488/flyrank-ml-internship

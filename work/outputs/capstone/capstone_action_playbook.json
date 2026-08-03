@@ -1,0 +1,32 @@
+{
+  "automatic_action": false,
+  "causal_claim": false,
+  "monetary_roi_claim": false,
+  "human_review_required": true,
+  "human_review_rules": [
+    "Confirm current search intent and SERP composition.",
+    "Verify analytics availability and tracking consistency.",
+    "Check indexing, canonical, redirect, and no-index status.",
+    "Review title and description alignment.",
+    "Inspect competitor and SERP-feature movement.",
+    "Consider seasonality and query-mix changes.",
+    "Review factual accuracy and existing successful sections.",
+    "Confirm business, legal, and compliance constraints.",
+    "Define a measurement window and rollback condition.",
+    "Record explicit human approval before any change."
+  ],
+  "no_go_rules": [
+    "Do not publish or rewrite automatically.",
+    "Do not delete, merge, redirect, canonicalise, prune, or no-index automatically.",
+    "Do not interpret the score as causal refresh impact.",
+    "Do not claim ranking, traffic, conversion, revenue, or ROI guarantees.",
+    "Do not use the queue outside the validated population without review."
+  ],
+  "monitoring_triggers": [
+    "Feature availability drops below the eligibility requirement.",
+    "Client or content distributions shift materially.",
+    "Precision@50 falls below the frozen baseline in a new audit.",
+    "Calibration or top-K ordering changes materially.",
+    "A new time period, market, language, or content type is introduced."
+  ]
+}

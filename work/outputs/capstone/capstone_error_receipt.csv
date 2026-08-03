@@ -1,0 +1,2 @@
+threshold,true_negatives,false_positives,false_negatives,true_positives,threshold_accuracy,majority_accuracy,declining_class_precision,declining_class_recall,declining_class_f1,non_declining_class_f1,top_50_proxy_positives,top_50_proxy_negatives
+0.5,5880,5282,1705,3096,0.5623003194888179,0.6992419971183361,0.36953926951539745,0.6448656529889606,0.4698383792396995,0.6273003680588894,32,18

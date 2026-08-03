@@ -1,23 +1,23 @@
 {
-  "assignment": "ML-11 Ship the Paper",
+  "assignment": "ML Capstone research paper notebook",
+  "ml11_complete": true,
+  "ml12_complete": true,
   "all_self_checks_passed": true,
   "public_safe": true,
-  "deployed_url_expected": "https://zafar488.github.io/flyrank-ml-internship/",
-  "paper_url_file": "submission/paper_url.txt",
-  "research_page": "docs/index.html",
-  "searchable_pdf": "docs/paper.pdf",
-  "verified_literature_page": "docs/literature.html",
-  "citation_file": "CITATION.cff",
-  "paper_sha256": "590e4e3c06be662e2198598bd2d814066c51765438ab754dc6fb51c282e6a4f6",
-  "paper_pages": 16,
-  "paper_version": "1.2",
-  "publication_status": "Pre-DOI",
-  "report": "work/capstone_report.md",
-  "assets": [
-    "docs/assets/model-vs-baseline.png",
-    "docs/assets/permutation-importance.png",
-    "docs/assets/action-mix.png",
-    "docs/assets/outcome-by-action.png",
-    "docs/assets/review-hours.png"
-  ]
+  "model_vs_baseline_same_split": true,
+  "client_overlap": 0,
+  "paper_url": "https://zafar488.github.io/flyrank-ml-internship/",
+  "paper_pdf_url": "https://zafar488.github.io/flyrank-ml-internship/paper.pdf",
+  "paper_version": "1.3",
+  "authors": [
+    "Zafar Ullah",
+    "Afaq Ahmad Khan"
+  ],
+  "selected_model": "Logistic Regression",
+  "primary_metric": "Precision@50",
+  "baseline_precision_50": 0.52,
+  "model_precision_50": 0.64,
+  "model_minus_baseline": 0.12,
+  "author_contributions": "Z.U. conceived the study, implemented the analysis, conducted validation and interpretation, prepared the visualizations, and drafted the manuscript. A.A.K. contributed to the literature review, methodological discussion, and manuscript review. Both authors reviewed and approved the final manuscript.",
+  "ai_assistance_disclosure": "Generative AI tools were used during early code drafting and for limited suggestions on manuscript organization and language. The authors subsequently rewrote the narrative, checked numerical claims against executed notebooks and aggregate receipts, reviewed the cited sources, and accept responsibility for the submitted text and analysis."
 }

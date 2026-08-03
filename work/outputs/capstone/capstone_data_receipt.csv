@@ -1,0 +1,2 @@
+release,source_table,source_rows,source_clients,source_client_pages,operational_rows,operational_clients,feature_window,outcome_window,declining_proxy_rate,client_names_exported,urls_exported,queries_exported
+March 2026,fact_content_daily_performance/month=2026-03,9841378,55,331437,34038,32,2026-03-01 to 2026-03-15,2026-03-16 to 2026-03-31,0.3089782008343616,False,False,False
